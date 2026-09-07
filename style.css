@@ -264,8 +264,12 @@ code {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   z-index: 1;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0); /* Hardware accelerated layer */
+  backface-visibility: hidden;
 }
 
 .canvas-vignette {

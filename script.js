@@ -48,19 +48,19 @@
     return `${FRAME_DIR}/${FRAME_PREFIX}${frameNum}${FRAME_EXT}`;
   }
 
-  // --- Canvas Sizing & High DPI Handling ---
-  let canvasWidth = 0;
-  let canvasHeight = 0;
-
+  // --- Canvas Sizing & High DPI Handling (Direct Pixel Grid Alignment) ---
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvasWidth = window.innerWidth;
-    canvasHeight = window.innerHeight;
+    const targetW = Math.round(window.innerWidth * dpr);
+    const targetH = Math.round(window.innerHeight * dpr);
 
-    canvas.width = Math.round(canvasWidth * dpr);
-    canvas.height = Math.round(canvasHeight * dpr);
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
 
-    ctx.scale(dpr, dpr);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
     // Force redraw of current frame on resize
     renderNearestFrame(Math.round(currentFrame));
@@ -72,9 +72,12 @@
   }, { passive: true });
   resizeCanvas();
 
-  // --- Aspect Ratio "Cover" Math ---
+  // --- Aspect Ratio "Cover" Math (Integer Physical Pixel Mapping) ---
   function drawImageCover(ctx, img, w, h) {
     if (!img || !img.complete || img.naturalWidth === 0) return;
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
     const imgWidth = img.naturalWidth;
     const imgHeight = img.naturalHeight;
@@ -85,57 +88,70 @@
 
     if (canvasRatio > imgRatio) {
       renderWidth = w;
-      renderHeight = w / imgRatio;
+      renderHeight = Math.round(w / imgRatio);
       offsetX = 0;
-      offsetY = (h - renderHeight) / 2;
+      offsetY = Math.round((h - renderHeight) / 2);
     } else {
-      renderWidth = h * imgRatio;
+      renderWidth = Math.round(h * imgRatio);
       renderHeight = h;
-      offsetX = (w - renderWidth) / 2;
+      offsetX = Math.round((w - renderWidth) / 2);
       offsetY = 0;
     }
 
     ctx.drawImage(img, 0, 0, imgWidth, imgHeight, offsetX, offsetY, renderWidth, renderHeight);
   }
 
-  // --- Safe Frame Renderer (Finds nearest loaded neighbor if needed) ---
+  // --- Safe Frame Renderer (Finds nearest loaded & decoded neighbor if needed) ---
   function renderNearestFrame(requestedIndex) {
     const clampedIndex = Math.min(Math.max(requestedIndex, 0), TOTAL_FRAMES - 1);
     
     // Check target frame first
     if (isLoadedMap[clampedIndex] && images[clampedIndex]?.complete && images[clampedIndex]?.naturalWidth > 0) {
-      drawImageCover(ctx, images[clampedIndex], canvasWidth, canvasHeight);
+      drawImageCover(ctx, images[clampedIndex], canvas.width, canvas.height);
       lastDrawnFrame = clampedIndex;
       return;
     }
 
-    // Search nearest available frame within range to prevent stuttering
-    for (let delta = 1; delta < 30; delta++) {
-      const forward = clampedIndex + delta;
-      if (forward < TOTAL_FRAMES && isLoadedMap[forward] && images[forward]?.complete) {
-        drawImageCover(ctx, images[forward], canvasWidth, canvasHeight);
-        lastDrawnFrame = forward;
+    // Search nearest available frame (backward first to leverage already-scrolled cache)
+    for (let delta = 1; delta < 40; delta++) {
+      const backward = clampedIndex - delta;
+      if (backward >= 0 && isLoadedMap[backward] && images[backward]?.complete && images[backward]?.naturalWidth > 0) {
+        drawImageCover(ctx, images[backward], canvas.width, canvas.height);
+        lastDrawnFrame = backward;
         return;
       }
-      const backward = clampedIndex - delta;
-      if (backward >= 0 && isLoadedMap[backward] && images[backward]?.complete) {
-        drawImageCover(ctx, images[backward], canvasWidth, canvasHeight);
-        lastDrawnFrame = backward;
+      const forward = clampedIndex + delta;
+      if (forward < TOTAL_FRAMES && isLoadedMap[forward] && images[forward]?.complete && images[forward]?.naturalWidth > 0) {
+        drawImageCover(ctx, images[forward], canvas.width, canvas.height);
+        lastDrawnFrame = forward;
         return;
       }
     }
   }
 
-  // --- Image Sequence Preloader ---
+  // --- Image Sequence Preloader & Async GPU Decoder ---
   function preloadImages() {
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
+      img.decoding = 'async';
       img.src = getFrameSrc(i);
 
-      img.onload = () => {
+      const onReady = () => {
         isLoadedMap[i] = 1;
         onImageLoaded(i);
       };
+
+      if (typeof img.decode === 'function') {
+        img.decode().then(onReady).catch(() => {
+          if (img.complete && img.naturalWidth > 0) {
+            onReady();
+          } else {
+            img.onload = onReady;
+          }
+        });
+      } else {
+        img.onload = onReady;
+      }
 
       img.onerror = () => {
         isLoadedMap[i] = 0;
@@ -169,14 +185,14 @@
     }
   }
 
-  // Fallback timer: unlock page after 3.5s regardless of network delays
+  // Fallback timer: unlock page after 4s regardless of network delays
   setTimeout(() => {
     if (!isPreloaderComplete) {
       isPreloaderComplete = true;
       if (preloader) preloader.classList.add('fade-out');
       renderNearestFrame(0);
     }
-  }, 3500);
+  }, 4000);
 
   // --- Scroll Tracking Engine (Full Page Through Footer) ---
   function updateScrollProgress() {
