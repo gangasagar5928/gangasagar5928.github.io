@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman Kumar Singh | Hardware Security, Tactical DSP & On-Device AI</title>
+  <meta name="description" content="Portfolio of Aman Kumar Singh - Electrical & Electronics Engineering student, inventor of 2 patent-pending cyber-physical security systems, defense-tech innovator, and full-stack developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-symbol">
+        <div class="glow-orb"></div>
+        <div class="spinner-ring"></div>
+        <span class="symbol-text">AKS</span>
+      </div>
+      <div class="preloader-text-group">
+        <h2 class="preloader-title">INITIALIZING SYSTEM TELEMETRY</h2>
+        <p class="preloader-status">Preloading sequence frames (<span id="load-count">0</span>/300)</p>
+      </div>
+      <div class="progress-bar-wrap">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div class="progress-number"><span id="progress-percentage">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="navbar" class="navbar">
+    <a href="#hero" class="nav-brand">
+      <span class="brand-badge">AKS</span>
+      <span class="brand-name">AMAN KUMAR SINGH<span class="accent-dot">.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#hero" class="nav-link active">Overview</a>
+      <a href="#patents" class="nav-link">Patents</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#github" class="nav-link">GitHub Sync</a>
+      <a href="#experience" class="nav-link">Ventures</a>
+      <a href="#skills" class="nav-link">Tech Stack</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://github.com/gangasagar5928" target="_blank" rel="noreferrer" class="btn-github-nav" title="Visit GitHub Profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>@gangasagar5928</span>
+      </a>
+      <a href="Aman_Kumar_Singh_Resume.docx" download class="btn-resume-nav">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span>Resume</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Interactive Scroll HUD & Scrubber -->
+  <aside class="scroll-hud" id="scroll-hud">
+    <div class="hud-track" id="hud-scrubber" title="Click or drag to scrub sequence">
+      <div id="hud-bar" class="hud-fill"></div>
+      <div id="hud-thumb" class="hud-thumb"></div>
+    </div>
+    <div class="hud-meta">
+      <span class="hud-label">FRAME</span>
+      <div class="hud-numbers">
+        <span id="hud-frame" class="hud-val">001</span>
+        <span class="hud-sep">/</span>
+        <span class="hud-total">300</span>
+      </div>
+      <span id="hud-pct" class="hud-pct">0% SCRUB</span>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Scroll-Triggered Sequence Section -->
+    <section id="hero" class="hero-sequence-container">
+      <div class="hero-sticky">
+        <canvas id="hero-canvas"></canvas>
+        <div class="canvas-vignette"></div>
+        <div class="canvas-ambient-light"></div>
+
+        <!-- Dynamic Milestone Overlays (Continuous 0.0 to 1.0 Coverage) -->
+        <div class="milestones-container">
+          <!-- Phase 0: 0% - 25% -->
+          <div class="milestone milestone-1 active" data-start="0.00" data-end="0.25">
+            <div class="milestone-badge">
+              <span class="pulse-dot"></span>
+              ELECTRICAL & ELECTRONICS ENGINEER • INVENTOR
+            </div>
+            <h1 class="hero-title">
+              HARDWARE-ENFORCED <br>
+              <span class="text-gradient">FAIL-CLOSED SYSTEMS</span> <br>
+              & TACTICAL INTELLIGENCE.
+            </h1>
+            <p class="hero-subtext">
+              Specializing in embedded cybersecurity, hardware interlocks, tactile DSP for extreme defense environments, and zero-RAM-cliff on-device AI inference.
+            </p>
+            <div class="hero-credentials-row">
+              <span class="cred-chip">✦ 2 Patents Pending</span>
+              <a href="#github" class="cred-chip-link">✦ 1,365+ GitHub Contributions ↗</a>
+              <span class="cred-chip">✦ SIH Defense Submissions</span>
+            </div>
+            <div class="scroll-indicator">
+              <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+              </div>
+              <span>SCROLL DOWN TO SCRUB SEQUENCE (300 FRAMES)</span>
+            </div>
+          </div>
+
+          <!-- Phase 1: 25% - 50% -->
+          <div class="milestone milestone-2" data-start="0.25" data-end="0.50">
+            <div class="glass-card right-aligned">
+              <div class="card-tag">PATENT SPECIFICATION 01 / BIOMEDICAL SECURITY</div>
+              <h2 class="card-title">BioTrustPulse™ Apparatus</h2>
+              <p class="card-description">
+                Fail-closed hardware-interlocked diagnostic apparatus with 15 drafted claims. Cryptographic root-of-trust (ECDSA P-256 / ATECC608A) with &lt;10.1 ms Quick Output Discharge photon extinction.
+              </p>
+              <div class="card-pills-row">
+                <span class="tag-pill">9-State Non-Reversible FSM</span>
+                <span class="tag-pill">Secure Boot v2 (RSA-PSS)</span>
+                <span class="tag-pill">QOD Power Gate</span>
+              </div>
+              <div class="card-actions-mini">
+                <a href="https://github.com/gangasagar5928/BioTrust-Pulse" target="_blank" rel="noreferrer" class="link-gh">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>gangasagar5928/BioTrust-Pulse ↗</span>
+                </a>
+              </div>
+              <div class="card-metric">
+                <span class="metric-num">&lt;10.1 ms</span>
+                <span class="metric-unit">PHOTON EXTINCTION SPEED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 2: 50% - 75% -->
+          <div class="milestone milestone-3" data-start="0.50" data-end="0.75">
+            <div class="glass-card left-aligned">
+              <div class="card-tag">PATENT SPECIFICATION 02 / CYBER-PHYSICAL BMS</div>
+              <h2 class="card-title">Sentry BMS™ Architecture</h2>
+              <p class="card-description">
+                Cross-pillar trust fusion: <code>T_overall = min(T_sensor, T_auth)</code>. Multi-axis slew-rate anomaly detection (dV/dt, dI/dt, dT/dt) defeats False Data Injection Attacks (FDIA) with 0V fail-closed MOSFET gate pull-down.
+              </p>
+              <div class="card-pills-row">
+                <span class="tag-pill">ESP32 FreeRTOS</span>
+                <span class="tag-pill">IRLZ44N Gate Interlock</span>
+                <span class="tag-pill">3-Sigma Anomaly Score</span>
+              </div>
+              <div class="card-metric">
+                <span class="metric-num">0V Default</span>
+                <span class="metric-unit">HARDWARE FAIL-CLOSED GATE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 3: 75% - 100% -->
+          <div class="milestone milestone-4" data-start="0.75" data-end="1.00">
+            <div class="glass-card center-aligned">
+              <div class="card-tag">DEFENSE-TECH & FULL-STACK PLATFORMS</div>
+              <h2 class="card-title">Engineering Resilient Realities</h2>
+              <p class="card-description">
+                From tactical throat-acoustic ANC in 120dB+ battlefield artillery noise to production PWAs with client-side AES-256-GCM + RSA-OAEP encryption.
+              </p>
+              <div class="cta-group">
+                <a href="#patents" class="btn-primary">Explore Patents</a>
+                <a href="#projects" class="btn-secondary">View Tactical Projects</a>
+                <a href="#github" class="btn-secondary">GitHub Live Activity</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patents Section -->
+    <section id="patents" class="section patents-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">INTELLECTUAL PROPERTY</span>
+          <h2 class="section-title">PATENT SPECIFICATIONS <span class="text-gradient">(FILING IN PROGRESS)</span></h2>
+          <p class="section-desc">Novel cyber-physical security apparatuses enforcing hardware-level fail-closed trust boundaries.</p>
+        </div>
+
+        <div class="patents-grid">
+          <!-- Patent 1 -->
+          <div class="patent-card">
+            <div class="patent-badge">PATENT PENDING • AUG 2026</div>
+            <h3 class="patent-name">BioTrustPulse — Fail-Closed Hardware-Interlocked Biometric Diagnostic Apparatus</h3>
+            <div class="patent-stack">
+              <span>ECDSA P-256</span>
+              <span>ATECC608A Secure Element</span>
+              <span>ESP32</span>
+              <span>QOD Circuit</span>
+            </div>
+            <p class="patent-text">
+              Complete specification drafted with 15 claims (11 apparatus, 4 method) covering fail-closed power gating of medical transducers via a 9-state non-reversible security Finite State Machine (FSM) and semiconductor load switch with Quick Output Discharge (&lt;10.1 ms photon extinction).
+            </p>
+            <ul class="patent-highlights">
+              <li><strong>Cryptographic Roots of Trust:</strong> ECDSA P-256 challenge-response via ATECC608A hardware secure element.</li>
+              <li><strong>Firmware Integrity:</strong> Secure Boot v2 using RSA-PSS 3072-bit verification and 94-byte calibration record with CRC-16 digital signature.</li>
+              <li><strong>Safe Harbor & Prior Art:</strong> Formulated with Section 3(k) safe harbor defense; distinguished from US9492114B2 and US20180271380A1.</li>
+            </ul>
+            <div class="patent-footer-links">
+              <a href="https://github.com/gangasagar5928/BioTrust-Pulse" target="_blank" rel="noreferrer" class="repo-action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>View BioTrust-Pulse on GitHub ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Patent 2 -->
+          <div class="patent-card">
+            <div class="patent-badge">PATENT PENDING • JUL 2026</div>
+            <h3 class="patent-name">Sentry BMS — Cyber-Physical Battery Management & Trust-Gated Access Control</h3>
+            <div class="patent-stack">
+              <span>ESP32 FreeRTOS</span>
+              <span>IRLZ44N MOSFET</span>
+              <span>MFRC522 RFID</span>
+              <span>NLMS DSP</span>
+            </div>
+            <p class="patent-text">
+              Complete specification drafted with 10 claims covering cross-pillar trust fusion architecture where battery telemetry integrity physically gates access authorization and power output: <code>T_overall = min(T_sensor, T_auth)</code>.
+            </p>
+            <ul class="patent-highlights">
+              <li><strong>FDIA Mitigation:</strong> Real-time False Data Injection Attack detection via multi-axis slew-rate anomaly scoring (dV/dt, dI/dt, dT/dt) against adaptive 3-sigma dynamic baseline.</li>
+              <li><strong>Hardware Fail-Closed:</strong> Dedicated 10kΩ hardware pull-down resistor enforcing 0V fail-closed default on MOSFET gate pin.</li>
+              <li><strong>Prior Art Differentiation:</strong> Explicitly distinguished from US11593479, US11661029, US9954215, and US12199954.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">TACTICAL SYSTEMS & AI</span>
+          <h2 class="section-title">DEFENSE-GRADE & <span class="text-gradient">ON-DEVICE ENGINEERING</span></h2>
+          <p class="section-desc">Projects spanning Smart India Hackathon defense submissions, DSP acoustics, and offline local LLMs.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: NIRDHVANI -->
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-gradient-art grad-defense"></div>
+              <div class="project-overlay-badge">SIH DEFENSE SUBMISSION</div>
+            </div>
+            <div class="project-info">
+              <div class="project-card-top">
+                <span class="project-cat">Tactical Acoustic DSP</span>
+                <span class="badge-ci"><img src="https://img.shields.io/github/actions/workflow/status/gangasagar5928/NIRDHVANI/ci.yml?label=CI&style=flat-square" alt="CI status" loading="lazy" onerror="this.style.display='none'"></span>
+              </div>
+              <h3 class="project-title">NIRDHVANI — Decoupled Throat-Acoustic ANC System</h3>
+              <p class="project-desc">
+                Engineered a throat-contact piezo transducer ANC system for 120dB+ battlefield artillery noise. Features an NLMS adaptive filter on isolated ESP32 Core 1 paired with a TinyML neural network (8-in, 16-ReLU, 5-out) dynamically tuning filter step sizes.
+              </p>
+              <div class="project-specs">
+                <span>Soft-tanh blast limiter</span>
+                <span>Geigel Double-Talk Detector</span>
+                <span>BOM &lt; ₹780</span>
+                <span>15+ hr battery</span>
+              </div>
+              <div class="project-tags">
+                <span>C / C++</span>
+                <span>ESP32 FreeRTOS</span>
+                <span>TinyML</span>
+                <span>DSP</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/gangasagar5928/NIRDHVANI" target="_blank" rel="noreferrer" class="repo-action-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: SkyGuard AI -->
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-gradient-art grad-defense" style="background: linear-gradient(135deg, #181d2e 0%, #203a5e 50%, #00b4d8 100%);"></div>
+              <div class="project-overlay-badge">SIH READY • AWS TELEMETRY</div>
+            </div>
+            <div class="project-info">
+              <div class="project-card-top">
+                <span class="project-cat">Hybrid Anomaly Detection</span>
+                <span class="badge-ci"><img src="https://img.shields.io/badge/SIH-Ready-FF9900?style=flat-square" alt="SIH Ready"></span>
+              </div>
+              <h3 class="project-title">SkyGuard AI — Weather Station Anomaly Engine</h3>
+              <p class="project-desc">
+                Intelligent real-time anomaly detection & predictive maintenance for Automatic Weather Stations (AWS) with a 5-in-1 hybrid ML engine and edge C99/ESP32 core running over WebSockets and FastAPI.
+              </p>
+              <div class="project-specs">
+                <span>5-in-1 Hybrid ML Engine</span>
+                <span>Edge C99 / ESP32</span>
+                <span>FastAPI WebSockets</span>
+                <span>Sensor Health Telemetry</span>
+              </div>
+              <div class="project-tags">
+                <span>Python 3.12</span>
+                <span>scikit-learn</span>
+                <span>ESP32 / C99</span>
+                <span>FastAPI</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/Priyanshu9040/Skyguard-AI" target="_blank" rel="noreferrer" class="repo-action-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: VARUNA-SDS -->
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-gradient-art grad-sonar"></div>
+              <div class="project-overlay-badge">SIH DEFENSE SUBMISSION</div>
+            </div>
+            <div class="project-info">
+              <div class="project-card-top">
+                <span class="project-cat">Subsea Acoustics & AUV</span>
+                <span class="badge-ci"><img src="https://img.shields.io/github/actions/workflow/status/gangasagar5928/VARUNA-SDS/ci.yml?label=CI&style=flat-square" alt="CI status" loading="lazy" onerror="this.style.display='none'"></span>
+              </div>
+              <h3 class="project-title">VARUNA-SDS — Software-Defined Sonar Payload</h3>
+              <p class="project-desc">
+                Software-defined sonar for Autonomous Underwater Vehicles (AUVs) generating 10–100kHz LFM chirp sweeps via DMA-driven DAC synthesis. Delivers 7.6 cm range resolution (50x improvement over fixed-frequency sonar) with Tukey/Hann windowing in multipath environments.
+              </p>
+              <div class="project-specs">
+                <span>10-100kHz Chirps</span>
+                <span>7.6 cm Range Resolution</span>
+                <span>DMA-driven DAC</span>
+                <span>UART Telemetry</span>
+              </div>
+              <div class="project-tags">
+                <span>STM32</span>
+                <span>ESP32</span>
+                <span>DMA / DAC</span>
+                <span>Signal Processing</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/gangasagar5928/VARUNA-SDS" target="_blank" rel="noreferrer" class="repo-action-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Eloqui -->
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-gradient-art grad-ai"></div>
+              <div class="project-overlay-badge">ON-DEVICE AI INFERENCE</div>
+            </div>
+            <div class="project-info">
+              <div class="project-card-top">
+                <span class="project-cat">Mobile & Local LLM</span>
+                <span class="badge-ci"><img src="https://img.shields.io/github/actions/workflow/status/gangasagar5928/Eloqui/ci.yml?label=CI&style=flat-square" alt="CI status" loading="lazy" onerror="this.style.display='none'"></span>
+              </div>
+              <h3 class="project-title">Eloqui — 100% Offline AI Speaking Coach</h3>
+              <p class="project-desc">
+                Runs local LLM inference (llama.cpp), speech recognition (Whisper STT), and neural voice synthesis (Piper TTS) via native C++ FFI bindings on Android. Solved the Multi-Model RAM Cliff with deterministic lifecycle management (Peak RAM &lt;1.2GB).
+              </p>
+              <div class="project-specs">
+                <span>llama.cpp + Whisper + Piper</span>
+                <span>C++ Native FFI</span>
+                <span>25 Passing Unit Tests</span>
+                <span>IELTS/TOEFL Engine</span>
+              </div>
+              <div class="project-tags">
+                <span>Flutter / Dart</span>
+                <span>C++ FFI</span>
+                <span>Whisper.cpp</span>
+                <span>llama.cpp</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/gangasagar5928/Eloqui" target="_blank" rel="noreferrer" class="repo-action-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: Dharma Daily -->
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-gradient-art grad-dharma"></div>
+              <div class="project-overlay-badge">OFFLINE MOBILE APP</div>
+            </div>
+            <div class="project-info">
+              <div class="project-card-top">
+                <span class="project-cat">Data Engineering & Mobile</span>
+                <span class="badge-ci"><img src="https://img.shields.io/github/actions/workflow/status/gangasagar5928/Dharma-Daily/ci.yml?label=CI&style=flat-square" alt="CI status" loading="lazy" onerror="this.style.display='none'"></span>
+              </div>
+              <h3 class="project-title">Dharma Daily — Offline Vedic Panchang & Scriptures</h3>
+              <p class="project-desc">
+                100% offline Android app with astronomical 2026 Panchang calculations (Tithi, Nakshatra, Yoga, Karana, Rahu Kaal) and embedded offline texts including Bhagavad Gita (700 verses), Yoga Sutras, and 4 Vedas with 360KB+ verified data.
+              </p>
+              <div class="project-specs">
+                <span>100% Offline App</span>
+                <span>360KB+ JSON Data</span>
+                <span>Astronomical Math</span>
+                <span>Multi-language</span>
+              </div>
+              <div class="project-tags">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>JSON Architecture</span>
+                <span>Android</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/gangasagar5928/Dharma-Daily" target="_blank" rel="noreferrer" class="repo-action-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE GITHUB SYNC SECTION -->
+    <section id="github" class="section github-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">LIVE GITHUB SYNCHRONIZATION</span>
+          <h2 class="section-title">ENGINEERING ACTIVITY & <span class="text-gradient">TELEMETRY</span></h2>
+          <p class="section-desc">Live synchronization with <a href="https://github.com/gangasagar5928" target="_blank" rel="noreferrer" class="text-accent-link">github.com/gangasagar5928</a>. 1,365+ contributions across hardware firmware, DSP pipelines, and full-stack architectures.</p>
+        </div>
+
+        <!-- GitHub Profile Bio Bar -->
+        <div class="github-profile-card">
+          <div class="gh-avatar-wrap">
+            <img src="https://avatars.githubusercontent.com/u/260201562?v=4" alt="Aman Kumar Singh GitHub Avatar" class="gh-avatar" loading="lazy">
+            <div class="gh-status-dot" title="Active developer"></div>
+          </div>
+          <div class="gh-profile-info">
+            <div class="gh-name-row">
+              <h3 class="gh-name">Aman Kumar Singh</h3>
+              <a href="https://github.com/gangasagar5928" target="_blank" rel="noreferrer" class="gh-handle">@gangasagar5928 ↗</a>
+            </div>
+            <p class="gh-bio">EEE student at GCET || Founder of Faujiniwas || Hardware-Enforced Fail-Closed Systems</p>
+            <div class="gh-badges-bar">
+              <span class="gh-badge"><strong id="gh-repos-count">8</strong> Public Repos</span>
+              <span class="gh-badge"><strong>1,365+</strong> Contributions</span>
+              <span class="gh-badge"><strong>Garuda Linux</strong> & <strong>BlackArch</strong></span>
+            </div>
+          </div>
+          <div class="gh-cta-wrap">
+            <a href="https://github.com/gangasagar5928" target="_blank" rel="noreferrer" class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>Follow on GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contribution Snake Animation Banner -->
+        <div class="snake-banner-card">
+          <div class="card-inner-header">
+            <span class="card-tag">CONTRIBUTION PIPELINE</span>
+            <span class="card-live-indicator"><span class="live-dot"></span> LIVE CRON UPDATE</span>
+          </div>
+          <div class="snake-img-wrap">
+            <img src="https://raw.githubusercontent.com/gangasagar5928/gangasagar5928/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake Animation" class="snake-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'snake-fallback\'>1,365+ Contributions across Defense DSP, BMS & On-Device AI Repositories</div>'">
+          </div>
+        </div>
+
+        <!-- 3D Contribution Visualizer & Analytics Cards -->
+        <div class="github-visuals-grid">
+          <div class="gh-visual-card">
+            <div class="visual-header">3D ISOMETRIC CONTRIBUTION GRAPH</div>
+            <img src="https://raw.githubusercontent.com/gangasagar5928/gangasagar5928/main/profile-3d-contrib/profile-night-rainbow.svg" alt="3D Isometric Contribution Graph" class="gh-graph-img" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="gh-stats-double">
+            <div class="gh-sub-card">
+              <img src="https://raw.githubusercontent.com/gangasagar5928/gangasagar5928/main/profile-summary-card-output/radical/3-stats.svg" alt="GitHub Stats Card" class="summary-card-img" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="gh-sub-card">
+              <img src="https://raw.githubusercontent.com/gangasagar5928/gangasagar5928/main/profile-summary-card-output/radical/1-repos-per-language.svg" alt="Top Languages by Repo" class="summary-card-img" loading="lazy" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Fetched Repositories Grid -->
+        <div class="live-repos-wrap">
+          <h3 class="live-repos-title">Synchronized Repositories (<span id="repo-count-title">8</span>)</h3>
+          <div class="live-repos-grid" id="live-repos-container">
+            <!-- Dynamically populated from GitHub API with static fallback -->
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/BioTrust-Pulse" target="_blank" class="repo-tile-title">BioTrust-Pulse ↗</a>
+                <span class="repo-star-pill">★ 2</span>
+              </div>
+              <p class="repo-tile-desc">Fail-Closed Hardware-Interlocked Biometric Diagnostic Apparatus with ECDSA P-256 root-of-trust.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#3178c6;"></span>
+                <span>TypeScript</span>
+              </div>
+            </div>
+
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/NIRDHVANI" target="_blank" class="repo-tile-title">NIRDHVANI ↗</a>
+                <span class="repo-star-pill">★ 1</span>
+              </div>
+              <p class="repo-tile-desc">Tactical dual-sensor adaptive noise cancellation for 120dB+ battlefield artillery noise using throat piezo.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#3572A5;"></span>
+                <span>Python / C</span>
+              </div>
+            </div>
+
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/faujiniwas" target="_blank" class="repo-tile-title">faujiniwas ↗</a>
+                <span class="repo-star-pill">★ 1</span>
+              </div>
+              <p class="repo-tile-desc">Zero-brokerage housing & relocation network for Indian Armed Forces across 62+ cantonments.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#e34c26;"></span>
+                <span>React / HTML</span>
+              </div>
+            </div>
+
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/Eloqui" target="_blank" class="repo-tile-title">Eloqui ↗</a>
+                <span class="repo-star-pill">★ 1</span>
+              </div>
+              <p class="repo-tile-desc">100% offline AI speaking coach running Whisper STT + llama.cpp + Piper TTS via native C++ FFI on Android.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#00B4AB;"></span>
+                <span>Dart / C++</span>
+              </div>
+            </div>
+
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/ScrapMandi" target="_blank" class="repo-tile-title">ScrapMandi ↗</a>
+                <span class="repo-star-pill">★ 1</span>
+              </div>
+              <p class="repo-tile-desc">B2B scrap exchange marketplace connecting verified vendors and dealers with Razorpay escrow verification.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#f1e05a;"></span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+
+            <div class="repo-tile">
+              <div class="repo-tile-top">
+                <a href="https://github.com/gangasagar5928/VARUNA-SDS" target="_blank" class="repo-tile-title">VARUNA-SDS ↗</a>
+                <span class="repo-star-pill">★ 1</span>
+              </div>
+              <p class="repo-tile-desc">Software-Defined Subsea Acoustic Waveform Synthesizer with real-time DDS & LFM chirp modulation.</p>
+              <div class="repo-tile-meta">
+                <span class="repo-lang-dot" style="background:#3572A5;"></span>
+                <span>Python / C++</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Ventures Section -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">ENTREPRENEURSHIP & COMMERCIAL PLATFORMS</span>
+          <h2 class="section-title">DEPLOYED <span class="text-gradient">COMMERCIAL VENTURES</span></h2>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Venture 1: Fauji Niwas -->
+          <div class="experience-item">
+            <div class="timeline-marker"></div>
+            <div class="experience-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">Founder & Lead Architect — Fauji Niwas</h3>
+                  <a href="https://faujiniwas.web.app" target="_blank" rel="noreferrer" class="exp-link">faujiniwas.web.app ↗</a>
+                </div>
+                <span class="exp-badge">FEB 2026 – PRESENT</span>
+              </div>
+              <p class="exp-desc">
+                Privacy-first defense relocation PWA designed for military personnel across 9 Cantonment zones throughout India.
+              </p>
+              <ul class="exp-points">
+                <li>Engineered client-side hybrid cryptographic architecture: <strong>AES-256-GCM + RSA-OAEP</strong> with zero-PII server exposure.</li>
+                <li>Built with React 18, Vite, Tailwind CSS, and Firebase backend with granular security rules.</li>
+                <li>Ensured military-grade communication confidentiality during critical posting transfers.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Venture 2: ScrapMandi -->
+          <div class="experience-item">
+            <div class="timeline-marker"></div>
+            <div class="experience-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">Founder & Full-Stack Engineer — ScrapMandi</h3>
+                  <a href="https://scrapmandi.web.app" target="_blank" rel="noreferrer" class="exp-link">scrapmandi.web.app ↗</a>
+                </div>
+                <span class="exp-badge">FEB 2026 – PRESENT</span>
+              </div>
+              <p class="exp-desc">
+                B2B scrap exchange marketplace connecting verified industrial vendors and scrap dealers.
+              </p>
+              <ul class="exp-points">
+                <li>Architected full-stack platform with React 18 + Vite + Tailwind + Firebase (Auth, Firestore, Storage, Cloud Functions) spanning <strong>7,000+ lines across 39 production components</strong>.</li>
+                <li>Implemented server-side Razorpay payment verification via Cloud Functions (<code>createRazorpayOrder</code>, signed webhook verification, escrow release logic).</li>
+                <li>Built Firestore security rules across 10 collections with strict role-based access control (RBAC).</li>
+                <li>Engineered and deployed Flutter Android APK with 3-ABI support (<code>arm64-v8a</code>, <code>armeabi-v7a</code>, <code>x86_64</code>), client-side image compression, and accessibility widget (4 font scales, 7 regional languages, dark mode).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">CAPABILITIES MATRIX</span>
+          <h2 class="section-title">CORE <span class="text-gradient">TECHNICAL STACK</span></h2>
+        </div>
+
+        <div class="skills-wrapper">
+          <div class="skill-category">
+            <h3 class="category-heading">Hardware & Embedded Systems</h3>
+            <div class="pill-cloud">
+              <div class="skill-pill">C / C++</div>
+              <div class="skill-pill">FreeRTOS</div>
+              <div class="skill-pill">ESP32 (Dual-Core)</div>
+              <div class="skill-pill">STM32 Microcontrollers</div>
+              <div class="skill-pill">DSP (NLMS Filters & LFM Chirps)</div>
+              <div class="skill-pill">TinyML On-Chip</div>
+              <div class="skill-pill">DMA / ADC / DAC / PWM</div>
+              <div class="skill-pill">PCB Design & Soldering</div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-heading">Security & Cryptography</h3>
+            <div class="pill-cloud">
+              <div class="skill-pill">AES-256-GCM</div>
+              <div class="skill-pill">RSA-OAEP / RSA-PSS 3072</div>
+              <div class="skill-pill">ECDSA / ECDH P-256</div>
+              <div class="skill-pill">ATECC608A Secure Element</div>
+              <div class="skill-pill">Secure Boot v2</div>
+              <div class="skill-pill">STRIDE Threat Modeling</div>
+              <div class="skill-pill">Fail-Closed Hardware Interlocks</div>
+              <div class="skill-pill">FDIA Defense</div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-heading">Software, Cloud & On-Device AI</h3>
+            <div class="pill-cloud">
+              <div class="skill-pill">Python</div>
+              <div class="skill-pill">React 18 / TypeScript</div>
+              <div class="skill-pill">Flutter & Dart</div>
+              <div class="skill-pill">llama.cpp / Whisper.cpp / Piper TTS</div>
+              <div class="skill-pill">C++ Native FFI Bindings</div>
+              <div class="skill-pill">Firebase (Auth, Firestore, Functions)</div>
+              <div class="skill-pill">Razorpay Payment APIs</div>
+              <div class="skill-pill">Tailwind CSS & Vite</div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-heading">Tools, Prototyping & CI/CD</h3>
+            <div class="pill-cloud">
+              <div class="skill-pill">PlatformIO</div>
+              <div class="skill-pill">Arduino IDE</div>
+              <div class="skill-pill">MATLAB / Simulink</div>
+              <div class="skill-pill">Android Studio</div>
+              <div class="skill-pill">GitHub Actions CI/CD</div>
+              <div class="skill-pill">Linux Shell & Git</div>
+              <div class="skill-pill">Figma Prototyping</div>
+              <div class="skill-pill">1,365+ Contributions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">ACADEMIC & HONORS</span>
+          <h2 class="section-title">EDUCATION & <span class="text-gradient">CERTIFICATIONS</span></h2>
+        </div>
+
+        <div class="edu-cert-grid">
+          <div class="edu-card">
+            <div class="edu-period">2025 – 2029 (EXPECTED)</div>
+            <h3 class="edu-institution">Galgotias College of Engineering & Technology (AKTU)</h3>
+            <span class="edu-degree">B.Tech in Electrical & Electronics Engineering</span>
+            <p class="edu-details">Greater Noida, Uttar Pradesh • 3rd Semester • Focus on cyber-physical security, embedded systems, digital signal processing, and hardware trust roots.</p>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-period">CBSE CLASS XII</div>
+            <h3 class="edu-institution">LBS Convent School</h3>
+            <span class="edu-degree">Physics, Chemistry, Mathematics (PCM)</span>
+            <p class="edu-details">Kota, Rajasthan • 72.4% Aggregate • JEE Main Mathematics: 90+ Percentile.</p>
+          </div>
+        </div>
+
+        <div class="cert-list">
+          <h3 class="cert-title">Certifications & Honors</h3>
+          <div class="cert-grid">
+            <div class="cert-item">
+              <div class="cert-icon">🎖️</div>
+              <div class="cert-text">
+                <strong>NCC Air Wing 'A' Certificate</strong>
+                <span>Ministry of Defence, India</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">🌐</div>
+              <div class="cert-text">
+                <strong>Duolingo English Test: 130/160</strong>
+                <span>CEFR C1 Advanced English Proficiency</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">🛡️</div>
+              <div class="cert-text">
+                <strong>Introduction to Cybersecurity</strong>
+                <span>Cisco Networking Academy</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">💼</div>
+              <div class="cert-text">
+                <strong>Cyber Job Simulation</strong>
+                <span>Deloitte Australia / Forage</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">📊</div>
+              <div class="cert-text">
+                <strong>MATLAB Onramp</strong>
+                <span>MathWorks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-glow"></div>
+          <span class="section-subtitle">DIRECT CONTACT</span>
+          <h2 class="contact-title">LET'S COLLABORATE ON <br><span class="text-gradient">CRITICAL SYSTEMS</span></h2>
+          <p class="contact-desc">Open for research partnerships, defense-tech engineering, and mission-critical embedded/full-stack consulting.</p>
+          
+          <div class="contact-details-grid">
+            <div class="contact-detail-item">
+              <span class="detail-label">EMAIL</span>
+              <a href="mailto:singhamankumar.5928@gmail.com" class="detail-val">singhamankumar.5928@gmail.com</a>
+            </div>
+            <div class="contact-detail-item">
+              <span class="detail-label">PHONE</span>
+              <a href="tel:+919460075023" class="detail-val">+91-9460075023</a>
+            </div>
+            <div class="contact-detail-item">
+              <span class="detail-label">LOCATION</span>
+              <span class="detail-val">Greater Noida, UP 201310</span>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a href="mailto:singhamankumar.5928@gmail.com" class="btn-primary">
+              <span>Send Email</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button id="copy-email-btn" class="btn-secondary" data-email="singhamankumar.5928@gmail.com">
+              <span id="copy-btn-text">Copy Email</span>
+            </button>
+            <a href="Aman_Kumar_Singh_Resume.docx" download class="btn-secondary">
+              <span>Download Resume (DOCX)</span>
+            </a>
+            <a href="https://github.com/gangasagar5928" target="_blank" rel="noreferrer" class="btn-secondary">
+              <span>GitHub Profile ↗</span>
+            </a>
+            <a href="https://linkedin.com/in/gangasagar5928" target="_blank" rel="noreferrer" class="btn-secondary">
+              <span>LinkedIn ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-logo">AMAN KUMAR SINGH<span class="accent-dot">.</span></span>
+        <p class="footer-copy">© 2026 Aman Kumar Singh. Greater Noida, India. Hardware-Enforced Fail-Closed Systems.</p>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-to-top">
+          <span>Back to Top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
