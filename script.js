@@ -387,7 +387,7 @@
             const color = langColors[r.language] || '#888888';
             const desc = r.description || 'Defense-grade engineering & hardware-interlocked system architecture.';
             return `
-              <div class="repo-tile">
+              <div class="repo-tile glass-panel">
                 <div class="repo-tile-top">
                   <a href="${r.html_url}" target="_blank" rel="noreferrer" class="repo-tile-title">${r.name} ↗</a>
                   <span class="repo-star-pill">★ ${r.stargazers_count}</span>
