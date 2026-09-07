@@ -19,7 +19,7 @@
   /* Ultra Glassmorphism Design System */
   --glass-bg: rgba(12, 12, 20, 0.28);
   --glass-bg-hover: rgba(18, 18, 28, 0.38);
-  --glass-blur: blur(16px) saturate(180%);
+  --glass-blur: blur(2px) saturate(130%);
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-border-hover: rgba(255, 51, 75, 0.45);
   --glass-specular-top: rgba(255, 255, 255, 0.28);
@@ -305,15 +305,15 @@ code {
   z-index: 1000;
   transition: var(--transition-smooth);
   background: rgba(10, 10, 16, 0.22);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar.scrolled {
   background: rgba(10, 10, 16, 0.45);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  backdrop-filter: blur(3px) saturate(130%);
+  -webkit-backdrop-filter: blur(3px) saturate(130%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   padding: 0.85rem 5%;
@@ -443,8 +443,8 @@ code {
   gap: 1rem;
   z-index: 100;
   background: rgba(12, 12, 20, 0.32);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   padding: 0.8rem 0.6rem;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -563,8 +563,8 @@ code {
   max-width: 780px;
   padding: 2.8rem 3rem;
   background: rgba(12, 12, 20, 0.28);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-top: 1px solid rgba(255, 255, 255, 0.28);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -751,8 +751,8 @@ code {
   align-items: center;
   gap: 0.5rem;
   background: linear-gradient(135deg, rgba(255, 77, 99, 0.85) 0%, rgba(255, 51, 75, 0.95) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   color: #fff;
   padding: 0.8rem 1.6rem;
   border-radius: 99px;
@@ -777,8 +777,8 @@ code {
   align-items: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-top: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
@@ -964,8 +964,8 @@ code {
   bottom: 0.9rem;
   left: 1rem;
   background: rgba(12, 12, 18, 0.4);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   padding: 0.35rem 0.8rem;
   border-radius: 99px;
   font-family: var(--font-display);
@@ -1215,8 +1215,8 @@ code {
   overflow-x: auto;
   border-radius: 16px;
   background: rgba(10, 10, 18, 0.25);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 1px solid rgba(255, 255, 255, 0.22);
   padding: 1rem;
@@ -1691,8 +1691,8 @@ code {
   position: relative;
   overflow: hidden;
   background: rgba(14, 14, 22, 0.28);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(2.5px) saturate(120%);
+  -webkit-backdrop-filter: blur(2.5px) saturate(120%);
   border: 1px solid rgba(255, 51, 75, 0.35);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -1779,8 +1779,8 @@ code {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding: 3.5rem 0;
   background: rgba(10, 10, 16, 0.28);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
