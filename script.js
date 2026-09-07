@@ -22,7 +22,6 @@
 
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d', { alpha: false });
-  const heroContainer = document.querySelector('.hero-sequence-container');
 
   const hudBar = document.getElementById('hud-bar');
   const hudThumb = document.getElementById('hud-thumb');
@@ -72,7 +71,10 @@
     renderNearestFrame(Math.round(currentFrame));
   }
 
-  window.addEventListener('resize', resizeCanvas, { passive: true });
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    updateScrollProgress();
+  }, { passive: true });
   resizeCanvas();
 
   // --- Aspect Ratio "Cover" Math ---
@@ -181,17 +183,13 @@
     }
   }, 3500);
 
-  // --- Scroll Tracking Engine ---
+  // --- Scroll Tracking Engine (Full Page Through Footer) ---
   function updateScrollProgress() {
-    if (!heroContainer) return;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+    const maxScroll = Math.max(scrollHeight - clientHeight, 1);
 
-    const rect = heroContainer.getBoundingClientRect();
-    const trackHeight = heroContainer.offsetHeight - window.innerHeight;
-
-    if (trackHeight <= 0) return;
-
-    // Accurate progress from 0.0 (top) to 1.0 (end of pinned sequence)
-    const rawProgress = -rect.top / trackHeight;
+    const rawProgress = window.scrollY / maxScroll;
     targetProgress = Math.min(Math.max(rawProgress, 0), 1);
     targetFrame = targetProgress * (TOTAL_FRAMES - 1);
 
@@ -216,22 +214,24 @@
     if (hudBar) hudBar.style.height = `${pctInt}%`;
     if (hudThumb) hudThumb.style.top = `${pctInt}%`;
     if (hudFrame) hudFrame.textContent = String(frameIndex + 1).padStart(3, '0');
-    if (hudPct) hudPct.textContent = `${pctInt}% SCRUB`;
+    if (hudPct) hudPct.textContent = `${pctInt}% TO FOOTER`;
 
     // Continuous Milestone Coverage (Zero Gaps)
-    milestones.forEach((el) => {
-      const start = parseFloat(el.getAttribute('data-start'));
-      const end = parseFloat(el.getAttribute('data-end'));
+    if (milestones && milestones.length > 0) {
+      milestones.forEach((el) => {
+        const start = parseFloat(el.getAttribute('data-start'));
+        const end = parseFloat(el.getAttribute('data-end'));
 
-      const isVisible = (clampedProgress >= start && clampedProgress <= end) ||
-                        (start === 0.75 && clampedProgress >= 0.75);
+        const isVisible = (clampedProgress >= start && clampedProgress <= end) ||
+                          (start === 0.75 && clampedProgress >= 0.75);
 
-      if (isVisible) {
-        if (!el.classList.contains('active')) el.classList.add('active');
-      } else {
-        if (el.classList.contains('active')) el.classList.remove('active');
-      }
-    });
+        if (isVisible) {
+          if (!el.classList.contains('active')) el.classList.add('active');
+        } else {
+          if (el.classList.contains('active')) el.classList.remove('active');
+        }
+      });
+    }
   }
 
   // --- Main Animation Loop (rAF with sub-pixel Lerp) ---
@@ -259,8 +259,10 @@
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
       const relY = Math.min(Math.max((clientY - rect.top) / rect.height, 0), 1);
 
-      const trackHeight = heroContainer.offsetHeight - window.innerHeight;
-      const targetScrollY = heroContainer.offsetTop + (relY * trackHeight);
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+      const maxScroll = Math.max(scrollHeight - clientHeight, 1);
+      const targetScrollY = relY * maxScroll;
 
       window.scrollTo({
         top: targetScrollY,
