@@ -23,11 +23,6 @@
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d', { alpha: false });
 
-  const hudBar = document.getElementById('hud-bar');
-  const hudThumb = document.getElementById('hud-thumb');
-  const hudFrame = document.getElementById('hud-frame');
-  const hudPct = document.getElementById('hud-pct');
-  const hudScrubber = document.getElementById('hud-scrubber');
 
   const milestones = document.querySelectorAll('.milestone');
   const navbar = document.getElementById('navbar');
@@ -210,11 +205,6 @@
     const clampedProgress = Math.min(Math.max(progress, 0), 1);
     const pctInt = Math.round(clampedProgress * 100);
 
-    // Update HUD
-    if (hudBar) hudBar.style.height = `${pctInt}%`;
-    if (hudThumb) hudThumb.style.top = `${pctInt}%`;
-    if (hudFrame) hudFrame.textContent = String(frameIndex + 1).padStart(3, '0');
-    if (hudPct) hudPct.textContent = `${pctInt}% TO FOOTER`;
 
     // Continuous Milestone Coverage (Zero Gaps)
     if (milestones && milestones.length > 0) {
@@ -250,53 +240,6 @@
     requestAnimationFrame(animationLoop);
   }
 
-  // --- Interactive HUD Scrubber Click & Drag ---
-  if (hudScrubber) {
-    let isDragging = false;
-
-    function handleScrub(e) {
-      const rect = hudScrubber.getBoundingClientRect();
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      const relY = Math.min(Math.max((clientY - rect.top) / rect.height, 0), 1);
-
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = window.innerHeight || document.documentElement.clientHeight;
-      const maxScroll = Math.max(scrollHeight - clientHeight, 1);
-      const targetScrollY = relY * maxScroll;
-
-      window.scrollTo({
-        top: targetScrollY,
-        behavior: 'auto'
-      });
-      updateScrollProgress();
-    }
-
-    hudScrubber.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      handleScrub(e);
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (isDragging) handleScrub(e);
-    });
-
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
-    hudScrubber.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      handleScrub(e);
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (isDragging) handleScrub(e);
-    }, { passive: true });
-
-    window.addEventListener('touchend', () => {
-      isDragging = false;
-    });
-  }
 
   // --- Smooth Anchor Navigation ---
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
