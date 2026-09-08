@@ -321,6 +321,16 @@
     'HTML': '#e34c26'
   };
 
+  const repoDescriptions = {
+    'NIRDHVANI': 'Tactical dual-sensor adaptive noise cancellation for 120dB+ battlefield artillery noise using throat piezo.',
+    'faujiniwas': 'Zero-brokerage defense relocation network for Indian Armed Forces across 62+ cantonments.',
+    'Eloqui': '100% offline AI speaking coach running Whisper STT + llama.cpp + Piper TTS via native C++ FFI on Android.',
+    'ScrapMandi': 'B2B scrap exchange marketplace connecting verified industrial vendors and dealers with Razorpay escrow verification.',
+    'VARUNA-SDS': 'Software-Defined Subsea Acoustic Waveform Synthesizer with real-time DDS & LFM chirp modulation.',
+    'Dharma-Daily': '100% offline Vedic Panchang & scriptures app with astronomical calculations and 360KB+ verified data.',
+    'Skyguard-AI': 'Intelligent real-time anomaly detection & predictive maintenance for AWS weather stations.'
+  };
+
   async function syncGitHubData() {
     try {
       const [userRes, reposRes] = await Promise.all([
@@ -332,8 +342,8 @@
         const user = await userRes.json();
         const reposCountEl = document.getElementById('gh-repos-count');
         const repoCountTitle = document.getElementById('repo-count-title');
-        if (reposCountEl) reposCountEl.textContent = user.public_repos || '8';
-        if (repoCountTitle) repoCountTitle.textContent = user.public_repos || '8';
+        if (reposCountEl) reposCountEl.textContent = user.public_repos || '7';
+        if (repoCountTitle) repoCountTitle.textContent = user.public_repos || '7';
       }
 
       if (reposRes.ok) {
@@ -344,7 +354,7 @@
           const filtered = repos.filter(r => r.name !== 'gangasagar5928');
           container.innerHTML = filtered.map(r => {
             const color = langColors[r.language] || '#888888';
-            const desc = r.description || 'Defense-grade engineering & hardware-interlocked system architecture.';
+            const desc = r.description || repoDescriptions[r.name] || 'Defense-grade engineering & hardware-interlocked system architecture.';
             return `
               <div class="repo-tile glass-panel">
                 <div class="repo-tile-top">
