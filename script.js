@@ -11,7 +11,7 @@
   const TOTAL_FRAMES = 300;
   const FRAME_DIR = 'frames';
   const FRAME_PREFIX = 'ezgif-frame-';
-  const FRAME_EXT = '.jpg';
+  const FRAME_EXT = '.png';
   const LERP_FACTOR = 0.12; // Responsive and smooth interpolation
 
   // --- DOM Elements ---
