@@ -48,11 +48,26 @@
     return `${FRAME_DIR}/${FRAME_PREFIX}${frameNum}${FRAME_EXT}`;
   }
 
+  let lastInnerWidth = window.innerWidth;
+  let lastInnerHeight = window.innerHeight;
+
   // --- Canvas Sizing & High DPI Handling (Direct Pixel Grid Alignment) ---
   function resizeCanvas() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const targetW = Math.round(window.innerWidth * dpr);
-    const targetH = Math.round(window.innerHeight * dpr);
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const isMobile = w <= 768;
+
+    // Suppress buffer reallocation when only mobile address bar expands/collapses (< 100px)
+    if (isMobile && w === lastInnerWidth && Math.abs(h - lastInnerHeight) < 100 && canvas.width > 0 && canvas.height > 0) {
+      return;
+    }
+
+    lastInnerWidth = w;
+    lastInnerHeight = h;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
+    const targetW = Math.round(w * dpr);
+    const targetH = Math.round(h * dpr);
 
     if (canvas.width !== targetW || canvas.height !== targetH) {
       canvas.width = targetW;
@@ -60,7 +75,7 @@
     }
 
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
+    ctx.imageSmoothingQuality = isMobile ? 'medium' : 'high';
 
     // Force redraw of current frame on resize
     renderNearestFrame(Math.round(currentFrame));
@@ -289,6 +304,66 @@
     });
   }
 
+  // --- Mobile Navigation Drawer Controller ---
+  const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+  const mobileNavClose = document.getElementById('mobile-nav-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.add('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    if (mobileNavToggle) {
+      mobileNavToggle.classList.add('active');
+      mobileNavToggle.setAttribute('aria-expanded', 'true');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.remove('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    if (mobileNavToggle) {
+      mobileNavToggle.classList.remove('active');
+      mobileNavToggle.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (mobileNavToggle) {
+    mobileNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+  }
+
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', closeMobileNav);
+  }
+
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  }
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
+
   // --- Active Nav Link on Scroll ---
   const sections = document.querySelectorAll('section[id]');
   function highlightNavOnScroll() {
@@ -300,6 +375,12 @@
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+        mobileNavLinks.forEach((link) => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${sectionId}`) {
             link.classList.add('active');
