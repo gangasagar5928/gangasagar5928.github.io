@@ -127,10 +127,10 @@ code {
 }
 
 /* Text readability over live background video */
-.hero-title, .section-title, .patent-name, .project-title, .exp-title, .edu-institution, .contact-title, .brand-name {
+.hero-title, .section-title, .project-title, .exp-title, .edu-institution, .contact-title, .brand-name {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
 }
-.hero-subtext, .section-desc, .patent-text, .project-desc, .exp-desc, .edu-details, .contact-desc {
+.hero-subtext, .section-desc, .project-desc, .exp-desc, .edu-details, .contact-desc {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -803,114 +803,6 @@ code {
   transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   Patents Section
-   ========================================================================== */
-.patents-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
-  gap: 2rem;
-}
-
-.patent-card {
-  padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: var(--transition-smooth);
-}
-
-.patent-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-amber), var(--accent-red));
-}
-
-.patent-card:hover {
-  border-color: var(--border-active);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
-
-.patent-badge {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent-amber);
-  margin-bottom: 1rem;
-}
-
-.patent-name {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.35;
-  margin-bottom: 1rem;
-}
-
-.patent-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.4rem;
-}
-
-.patent-stack span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.25rem 0.65rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  color: var(--text-secondary);
-}
-
-.patent-text {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 1.4rem;
-}
-
-.patent-highlights {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1.2rem;
-  margin-bottom: 1.4rem;
-}
-
-.patent-highlights li {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-  position: relative;
-  padding-left: 1.2rem;
-}
-
-.patent-highlights li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-}
-
-.patent-highlights strong {
-  color: var(--text-primary);
-}
-
-.patent-footer-links {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1rem;
-}
 
 /* ==========================================================================
    Projects Section
@@ -1853,9 +1745,6 @@ code {
   }
   .hud-meta {
     display: none;
-  }
-  .patents-grid {
-    grid-template-columns: 1fr;
   }
   .github-visuals-grid {
     grid-template-columns: 1fr;
