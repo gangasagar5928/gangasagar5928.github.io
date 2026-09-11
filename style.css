@@ -1711,6 +1711,29 @@ code {
   box-shadow: 0 4px 16px rgba(255, 51, 75, 0.35);
 }
 
+.contact-btn-pill.whatsapp-pill {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.35);
+  color: #fff;
+}
+
+.contact-btn-pill.whatsapp-pill:hover {
+  background: rgba(37, 211, 102, 0.25);
+  border-color: #25d366;
+  color: #25d366;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.btn-primary.whatsapp-cta {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-primary.whatsapp-cta:hover {
+  background: linear-gradient(135deg, #2fe673 0%, #1eb980 100%);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+}
+
 .contact-actions {
   display: flex;
   align-items: center;
