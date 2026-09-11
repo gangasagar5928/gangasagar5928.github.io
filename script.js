@@ -48,22 +48,11 @@
     return `${FRAME_DIR}/${FRAME_PREFIX}${frameNum}${FRAME_EXT}`;
   }
 
-  let lastInnerWidth = window.innerWidth;
-  let lastInnerHeight = window.innerHeight;
-
   // --- Canvas Sizing & High DPI Handling (Direct Pixel Grid Alignment) ---
   function resizeCanvas() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const w = canvas.clientWidth || window.innerWidth;
+    const h = canvas.clientHeight || window.innerHeight;
     const isMobile = w <= 768;
-
-    // Suppress buffer reallocation when only mobile address bar expands/collapses (< 100px)
-    if (isMobile && w === lastInnerWidth && Math.abs(h - lastInnerHeight) < 100 && canvas.width > 0 && canvas.height > 0) {
-      return;
-    }
-
-    lastInnerWidth = w;
-    lastInnerHeight = h;
 
     const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
     const targetW = Math.round(w * dpr);
@@ -85,6 +74,20 @@
     resizeCanvas();
     updateScrollProgress();
   }, { passive: true });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+      resizeCanvas();
+      updateScrollProgress();
+    }, { passive: true });
+  }
+  window.addEventListener('orientationchange', () => {
+    setTimeout(resizeCanvas, 120);
+  }, { passive: true });
+  document.addEventListener('DOMContentLoaded', resizeCanvas);
+  window.addEventListener('load', () => {
+    resizeCanvas();
+    renderNearestFrame(0);
+  });
   resizeCanvas();
 
   // --- Aspect Ratio "Cover" Math (Integer Physical Pixel Mapping) ---
@@ -113,6 +116,7 @@
       offsetY = 0;
     }
 
+    ctx.clearRect(0, 0, w, h);
     ctx.drawImage(img, 0, 0, imgWidth, imgHeight, offsetX, offsetY, renderWidth, renderHeight);
   }
 
@@ -182,6 +186,7 @@
 
     // Draw first frame immediately once available
     if (index === 0) {
+      resizeCanvas();
       renderNearestFrame(0);
     }
 
@@ -193,8 +198,10 @@
     // Dismiss preloader once sequence is cached
     if (loadedCount >= TOTAL_FRAMES && !isPreloaderComplete) {
       isPreloaderComplete = true;
+      resizeCanvas();
       setTimeout(() => {
         if (preloader) preloader.classList.add('fade-out');
+        resizeCanvas();
         renderNearestFrame(0);
       }, 300);
     }
@@ -204,6 +211,7 @@
   setTimeout(() => {
     if (!isPreloaderComplete) {
       isPreloaderComplete = true;
+      resizeCanvas();
       if (preloader) preloader.classList.add('fade-out');
       renderNearestFrame(0);
     }
