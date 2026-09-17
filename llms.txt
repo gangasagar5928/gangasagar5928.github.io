@@ -1,0 +1,27 @@
+# Aman Kumar Singh (@gangasagar5928)
+
+> Electrical & Electronics Engineering student and developer specializing in hardware-enforced fail-closed architectures, embedded cybersecurity, tactical DSP, and on-device AI inference.
+
+## Identity & Canonical Links
+- Name: Aman Kumar Singh
+- Developer Handle: GangaSagar5928
+- Official Portfolio: https://gangasagar5928.github.io/
+- About Me: https://gangasagar5928.github.io/about.html
+- GitHub: https://github.com/gangasagar5928
+- LinkedIn: https://www.linkedin.com/in/gangasagar5928/
+- Instagram: https://www.instagram.com/gangasagar5928/
+
+## Featured Engineering Projects
+- [NIRDHVANI](https://github.com/gangasagar5928/NIRDHVANI): Tactical throat-acoustic adaptive noise cancellation for 120dB+ battlefield noise using dual-core ESP32 FreeRTOS and TinyML.
+- [Fauji Niwas](https://faujiniwas.web.app): Privacy-first defense relocation platform serving military personnel across 9 Cantonment zones with client-side AES-256-GCM + RSA-OAEP encryption.
+- [ScrapMandi](https://scrapmandi.web.app): B2B industrial scrap exchange platform with Cloud Functions Razorpay escrow verification and Flutter Android application.
+- [Eloqui](https://github.com/gangasagar5928/Eloqui): 100% offline local AI speaking coach running llama.cpp, Whisper STT, and Piper TTS via C++ FFI bindings on Android.
+- [BioTrust-Pulse](https://gangasagar5928.github.io/about.html#biotrust-pulse): Fail-closed hardware-interlocked biometric diagnostic apparatus with 9-state non-reversible security FSM and ATECC608A ECDSA P-256 root of trust.
+- [Dharma Daily](https://github.com/gangasagar5928/Dharma-Daily): 100% offline Android application with astronomical Panchang calculations and 360KB+ verified scriptural corpus.
+- [VARUNA-SDS](https://github.com/gangasagar5928/VARUNA-SDS): Software-defined sonar payload for Autonomous Underwater Vehicles (AUVs) with 10–100kHz LFM chirp sweeps.
+- [SkyGuard AI](https://github.com/Priyanshu9040/Skyguard-AI): Automatic Weather Station anomaly detection engine with 5-in-1 hybrid ML pipeline.
+
+## Academic & Institutional Affiliation
+- Institution: Galgotias College of Engineering & Technology (AKTU)
+- Degree: B.Tech in Electrical & Electronics Engineering (2025–2029)
+- Distinction: NCC Air Wing 'A' Certificate (Grade 'AYE')
