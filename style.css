@@ -2334,22 +2334,24 @@ code {
 /* Handles Directory Grid */
 .handles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
   margin-top: 1.5rem;
 }
 
 .handle-card {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  padding: 1.2rem 1.4rem;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
   border-radius: 12px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   text-decoration: none;
   color: var(--text-primary);
   transition: var(--transition-smooth);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .handle-card:hover {
@@ -2375,29 +2377,42 @@ code {
 .handle-info {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .handle-platform {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .handle-value {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .handle-verified-tag {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #3fb950;
   display: flex;
   align-items: center;
   gap: 0.3rem;
   margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Status Badges for Projects */
