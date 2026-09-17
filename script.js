@@ -21,7 +21,7 @@
   const loadCountEl = document.getElementById('load-count');
 
   const canvas = document.getElementById('hero-canvas');
-  const ctx = canvas.getContext('2d', { alpha: false });
+  const ctx = canvas ? canvas.getContext('2d', { alpha: false }) : null;
 
 
   const milestones = document.querySelectorAll('.milestone');
@@ -70,25 +70,27 @@
     renderNearestFrame(Math.round(currentFrame));
   }
 
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    updateScrollProgress();
-  }, { passive: true });
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', () => {
+  if (canvas) {
+    window.addEventListener('resize', () => {
       resizeCanvas();
       updateScrollProgress();
     }, { passive: true });
-  }
-  window.addEventListener('orientationchange', () => {
-    setTimeout(resizeCanvas, 120);
-  }, { passive: true });
-  document.addEventListener('DOMContentLoaded', resizeCanvas);
-  window.addEventListener('load', () => {
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', () => {
+        resizeCanvas();
+        updateScrollProgress();
+      }, { passive: true });
+    }
+    window.addEventListener('orientationchange', () => {
+      setTimeout(resizeCanvas, 120);
+    }, { passive: true });
+    document.addEventListener('DOMContentLoaded', resizeCanvas);
+    window.addEventListener('load', () => {
+      resizeCanvas();
+      renderNearestFrame(0);
+    });
     resizeCanvas();
-    renderNearestFrame(0);
-  });
-  resizeCanvas();
+  }
 
   // --- Aspect Ratio "Cover" Math (Integer Physical Pixel Mapping) ---
   function drawImageCover(ctx, img, w, h) {
@@ -469,8 +471,10 @@
   syncGitHubData();
 
   // --- Initialize Application ---
-  preloadImages();
-  updateScrollProgress();
-  requestAnimationFrame(animationLoop);
+  if (canvas) {
+    preloadImages();
+    updateScrollProgress();
+    requestAnimationFrame(animationLoop);
+  }
 
 })();

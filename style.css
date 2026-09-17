@@ -2224,3 +2224,241 @@ code {
     padding: 2.2rem 0.8rem;
   }
 }
+
+/* ==========================================================================
+   About Me Page & Entity Profile Styles
+   ========================================================================== */
+.about-hero-section {
+  padding: 8rem 0 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-card {
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  margin-bottom: 2.5rem;
+}
+
+.about-header-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about-avatar-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.about-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--accent-red);
+  object-fit: cover;
+  box-shadow: 0 0 30px var(--accent-red-glow);
+}
+
+.about-verified-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: #238636;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-color);
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.6);
+}
+
+.about-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.about-sublead {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--accent-red);
+}
+
+.breadcrumb-sep {
+  color: var(--accent-red);
+}
+
+/* Handles Directory Grid */
+.handles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.handle-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+.handle-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 51, 75, 0.2);
+}
+
+.handle-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+  flex-shrink: 0;
+}
+
+.handle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.handle-platform {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.handle-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.handle-verified-tag {
+  font-size: 0.75rem;
+  color: #3fb950;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+/* Status Badges for Projects */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-deployed {
+  background: rgba(35, 134, 54, 0.2);
+  color: #3fb950;
+  border: 1px solid rgba(63, 185, 80, 0.4);
+}
+
+.status-prototype {
+  background: rgba(255, 140, 66, 0.2);
+  color: #ff8c42;
+  border: 1px solid rgba(255, 140, 66, 0.4);
+}
+
+.status-patent {
+  background: rgba(255, 51, 75, 0.2);
+  color: #ff334b;
+  border: 1px solid rgba(255, 51, 75, 0.4);
+}
+
+.status-offline {
+  background: rgba(0, 210, 255, 0.2);
+  color: #00d2ff;
+  border: 1px solid rgba(0, 210, 255, 0.4);
+}
+
+.about-meta-box {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .about-header-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-avatar-wrap {
+    margin: 0 auto;
+  }
+  .handles-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-hero-card {
+    padding: 1.8rem 1.2rem;
+  }
+}
+
