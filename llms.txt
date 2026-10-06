@@ -24,4 +24,7 @@
 ## Academic & Institutional Affiliation
 - Institution: Galgotias College of Engineering & Technology (AKTU)
 - Degree: B.Tech in Electrical & Electronics Engineering (2025–2029)
-- Distinction: NCC Air Wing 'A' Certificate (Grade 'AYE')
+- Distinctions & Certifications:
+  - NCC Air Wing 'A' Certificate (Grade 'AYE')
+  - MathWorks Core MATLAB Skills (MathWorks Training Services, Sep 2026)
+  - GeeksforGeeks Computer Fundamentals Skill-Up
