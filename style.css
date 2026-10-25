@@ -1177,6 +1177,40 @@ code {
   font-size: 0.9rem;
 }
 
+/* Streak Banner Card */
+.streak-banner-card {
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.streak-img-wrap {
+  width: 100%;
+  min-height: 180px;
+  overflow-x: auto;
+  border-radius: 16px;
+  background: rgba(10, 10, 18, 0.25);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 1rem;
+  text-align: center;
+}
+
+.streak-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.highlight-badge {
+  border-color: rgba(255, 140, 66, 0.5) !important;
+  color: #ff8c42 !important;
+}
+
 /* GitHub Visuals Grid */
 .github-visuals-grid {
   display: grid;
@@ -2175,7 +2209,8 @@ code {
   .gh-badges-bar {
     justify-content: center;
   }
-  .snake-banner-card {
+  .snake-banner-card,
+  .streak-banner-card {
     padding: 1.2rem 0.8rem;
   }
   .gh-visual-card {

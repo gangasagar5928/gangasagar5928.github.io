@@ -429,6 +429,7 @@
   };
 
   async function syncGitHubData() {
+    // 1. Live Profile & Repositories Sync
     try {
       const [userRes, reposRes] = await Promise.all([
         fetch('https://api.github.com/users/gangasagar5928'),
@@ -439,8 +440,8 @@
         const user = await userRes.json();
         const reposCountEl = document.getElementById('gh-repos-count');
         const repoCountTitle = document.getElementById('repo-count-title');
-        if (reposCountEl) reposCountEl.textContent = user.public_repos || '13';
-        if (repoCountTitle) repoCountTitle.textContent = (user.public_repos ? user.public_repos - 1 : '12');
+        if (reposCountEl) reposCountEl.textContent = user.public_repos || '14';
+        if (repoCountTitle) repoCountTitle.textContent = (user.public_repos ? user.public_repos - 1 : '13');
       }
 
       if (reposRes.ok) {
@@ -471,6 +472,55 @@
     } catch (err) {
       // Graceful degradation: keeps static fallback content
       console.log('GitHub API offline or rate-limited. Static fallback active.');
+    }
+
+    // 2. Live Contributions & Active Streak Telemetry Sync
+    try {
+      const contribsRes = await fetch('https://github-contributions-api.jogruber.de/v4/gangasagar5928');
+      if (contribsRes.ok) {
+        const data = await contribsRes.json();
+        let total = 0;
+        if (data.total) {
+          total = Object.values(data.total).reduce((s, v) => s + v, 0);
+        }
+
+        let streak = 0;
+        if (Array.isArray(data.contributions)) {
+          const nowStr = new Date().toISOString().split('T')[0];
+          let started = false;
+          for (let i = data.contributions.length - 1; i >= 0; i--) {
+            const item = data.contributions[i];
+            if (item.date > nowStr) continue;
+            if (item.count > 0) {
+              started = true;
+              streak++;
+            } else {
+              if (!started && item.date === nowStr) continue;
+              break;
+            }
+          }
+        }
+
+        const contribsEl = document.getElementById('gh-contribs-count');
+        const streakEl = document.getElementById('gh-streak-count');
+        const streakLiveText = document.getElementById('streak-live-text');
+        const heroContribsText = document.getElementById('hero-contribs-text');
+        const skillPillContribs = document.getElementById('skill-pill-contribs');
+
+        if (total > 0 && contribsEl) {
+          contribsEl.textContent = `${total.toLocaleString()}+ Contributions`;
+        }
+        if (streak > 0) {
+          if (streakEl) streakEl.textContent = `${streak}-Day Streak`;
+          if (streakLiveText) streakLiveText.textContent = `${streak}-DAY ACTIVE STREAK`;
+        }
+        if (total > 0 && streak > 0) {
+          if (heroContribsText) heroContribsText.textContent = `${total.toLocaleString()}+ GitHub Commits (${streak}-Day Streak)`;
+          if (skillPillContribs) skillPillContribs.textContent = `${total.toLocaleString()}+ Contributions (${streak}-Day Streak)`;
+        }
+      }
+    } catch (e) {
+      console.log('Contributions telemetry sync fallback active.');
     }
   }
 

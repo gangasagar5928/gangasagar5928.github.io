@@ -16,7 +16,8 @@
 - [Fauji Niwas](https://faujiniwas.web.app): Privacy-first relocation platform serving Armed Forces personnel across 9 Cantonment zones with client-side AES-256-GCM + RSA-OAEP encryption.
 - [ScrapMandi](https://scrapmandi.web.app): B2B industrial scrap exchange platform with Cloud Functions Razorpay escrow verification and Flutter Android application.
 - [Eloqui](https://github.com/gangasagar5928/Eloqui): 100% offline local AI speaking coach running llama.cpp, Whisper STT, and Piper TTS via C++ FFI bindings on Android.
-- [BioTrust-Pulse](https://gangasagar5928.github.io/about.html#biotrust-pulse): Fail-closed hardware-interlocked biometric diagnostic apparatus with 9-state non-reversible security FSM and ATECC608A ECDSA P-256 root of trust.
+- [BioTrust-Pulse](https://gangasagar5928.github.io/about.html#biotrust-pulse): Fail-closed hardware-interlocked biometric diagnostic apparatus that verifies device integrity before measurement (Drafted — Filing in Progress).
+- [Drafted Patent Inventions](https://gangasagar5928.github.io/about.html): Inventor of four drafted patent applications across battery management security (Sentry BMS), medical anti-spoofing (BioTrustPulse), earthen primary power (Agastya), and spacecraft AI fault mitigation (RadZero Space AI).
 - [Dharma Daily](https://github.com/gangasagar5928/Dharma-Daily): 100% offline Android application with astronomical Panchang calculations and 360KB+ verified scriptural corpus.
 - [VARUNA-SDS](https://github.com/gangasagar5928/VARUNA-SDS): Software-defined sonar payload for Autonomous Underwater Vehicles (AUVs) with 10–100kHz LFM chirp sweeps.
 - [SkyGuard AI](https://github.com/Priyanshu9040/Skyguard-AI): Automatic Weather Station anomaly detection engine with 5-in-1 hybrid ML pipeline.
