@@ -1214,16 +1214,18 @@ code {
 /* GitHub Visuals Grid */
 .github-visuals-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: 1.8rem;
   margin-bottom: 2.5rem;
+  align-items: stretch;
 }
 
 .gh-visual-card {
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.8rem;
 }
 
 .visual-header {
@@ -1232,15 +1234,19 @@ code {
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--accent-red);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .gh-graph-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 840 / 360;
-  min-height: 200px;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: 1280 / 850;
+  object-fit: contain;
+  object-position: center top;
   border-radius: 10px;
+  display: block;
 }
 
 .gh-stats-double {
